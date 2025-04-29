@@ -37,6 +37,9 @@ class FreshRSSAggregator():
 
         unread_items = None
         unread_items = self.GetUnreads()
+        if gemini_model_name == None:
+            gemini_model_name = "gemini-2.0-flash"
+
         filtered_items = self.FilterItems(hoursDelta, unread_items)
 
         prompts = ['以下のリストに示すニュースを要約してください。']
@@ -52,7 +55,7 @@ class FreshRSSAggregator():
     @retry(stop=stop_after_attempt(3) | stop_after_delay(15))
     def call_gemini(self, prompt):
         genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
-        gemini_pro = genai.GenerativeModel("gemini-2.0-flash")
+        gemini_pro = genai.GenerativeModel(gemini_model_name)
 
         response = gemini_pro.generate_content(prompt)
         return response
