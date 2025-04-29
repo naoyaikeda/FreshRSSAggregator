@@ -84,7 +84,8 @@ python testclient.py
 
 FreshRSSAggregator/  
 │  
-├── FreshRSSAggregator.py   # FreshRSSAggregator クラス定義ファイル  
+├── FreshRSSAggregator
+│    ├── client.py
 ├── testclient.py           # クライアント/実行スクリプト  
 ├── .env                    # 環境変数ファイル (Git管理外にすること)  
 ├── pyproject.toml          # 
