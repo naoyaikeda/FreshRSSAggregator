@@ -13,7 +13,7 @@ def main():
 
     dotenv_path = join(dirname(__file__), '.env')
     load_dotenv(dotenv_path)
-    rssc = client.FreshRSSAggregator(os.environ.get("HOST"), os.environ.get("USERNAME"), os.environ.get("PASSWORD"))
+    rssc = client.FreshRSSAggregator(os.environ.get("HOST"), os.environ.get("USERNAME"), os.environ.get("PASSWORD"), logger=logger)
 
     response = rssc.Fetch(gemini_api_key=os.environ.get("GEMINI_API_KEY"), gemini_model_name=os.environ.get("GEMINI_MODEL_NAME"))
     print(response.text)
@@ -21,6 +21,6 @@ def main():
 if __name__ == "__main__":
     
     logging.basicConfig()
-    logging.getLogger(__name__).setLevel(logging.DEBUG)
+    logger = logging.getLogger(__name__).setLevel(logging.DEBUG)
 
     main()
