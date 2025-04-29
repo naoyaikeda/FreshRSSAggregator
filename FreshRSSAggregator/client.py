@@ -25,6 +25,9 @@ class FreshRSSAggregator():
         if gemini_model_name == None:
             gemini_model_name = os.environ.get("GEMINI_MODEL_NAME")
 
+        if gemini_model_name == None:
+            gemini_model_name = "gemini-2.0-flash"
+
         unread_items = self.api_client.get_unreads()
         filtered_items = self.FilterItems(hoursDelta, unread_items)
 
@@ -35,7 +38,7 @@ class FreshRSSAggregator():
         prompt = '\n'.join(prompts)
 
         genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
-        gemini_pro = genai.GenerativeModel("gemini-2.0-flash")
+        gemini_pro = genai.GenerativeModel(gemini_model_name)
 
         response = gemini_pro.generate_content(prompt)
 
