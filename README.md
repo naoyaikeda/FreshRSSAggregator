@@ -1,4 +1,4 @@
-# FreshRSS Gemini Summarizer
+# FreshRSSAggregator
 
 ## 概要
 
