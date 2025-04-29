@@ -82,13 +82,13 @@ python testclient.py
 スクリプトは指定された期間の未読アイテムタイトルを取得し、Geminiによって生成された要約をコンソールに出力します。
 ファイル構成 (例)
 
-FreshRSSAggregator/
-│
-├── FreshRSSAggregator.py   # FreshRSSAggregator クラス定義ファイル
-├── testclient.py           # クライアント/実行スクリプト
-├── .env                    # 環境変数ファイル (Git管理外にすること)
-├── requirements.txt        # 依存ライブラリリスト
-└── README.md               # このファイル
+FreshRSSAggregator/  
+│  
+├── FreshRSSAggregator.py   # FreshRSSAggregator クラス定義ファイル  
+├── testclient.py           # クライアント/実行スクリプト  
+├── .env                    # 環境変数ファイル (Git管理外にすること)  
+├── pyproject.toml          # 
+└── README.md               # このファイル  
 
 ライセンス
 
