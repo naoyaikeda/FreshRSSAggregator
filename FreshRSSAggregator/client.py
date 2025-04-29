@@ -30,7 +30,7 @@ class FreshRSSAggregator():
 
         prompts = ['以下のリストに示すニュースを要約してください。']
         for item in filtered_items:
-            prompts += "- " + item.title
+            prompts.append("- " + item.title)
 
         prompt = '\n'.join(prompts)
 
