@@ -48,12 +48,12 @@ class FreshRSSAggregator():
 
         prompt = '\n'.join(prompts)
 
-        response = self.call_gemini(prompt)
+        response = self.call_gemini(prompt, gemini_model_name)
 
         return(response)
 
     @retry(stop=stop_after_attempt(3) | stop_after_delay(15))
-    def call_gemini(self, prompt):
+    def call_gemini(self, prompt, gemini_model_name):
         genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
         gemini_pro = genai.GenerativeModel(gemini_model_name)
 
